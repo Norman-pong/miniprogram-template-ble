@@ -1,0 +1,3 @@
+bless>=0.2.6
+# pysetupdi is required by bless on Windows but not on PyPI
+pysetupdi @ git+https://github.com/gwangyi/pysetupdi.git; sys_platform == 'win32'

@@ -1,0 +1,59 @@
+.index {
+  padding: 20px;
+}
+
+.header {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.section {
+  margin-bottom: 20px;
+  border: 1px solid #eee;
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.section-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  display: block;
+}
+
+.btn-group {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  margin: 5px;
+  font-size: 14px;
+}
+
+.logs {
+  height: 300px;
+  border: 1px solid #ddd;
+  background: #f9f9f9;
+  padding: 10px;
+  margin-top: 20px;
+  font-family: monospace;
+  font-size: 12px;
+}
+
+.log-item {
+  margin-bottom: 5px;
+  word-break: break-all;
+}
+
+.device-item {
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.device-name {
+  font-weight: bold;
+}
