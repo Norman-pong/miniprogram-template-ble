@@ -40,8 +40,13 @@ interface BLEState {
   selectedCharId: string
   /** 当前连接设备的 MTU 值 */
   mtu: number
+  /** 自定义数据接收回调 (用于 BluFi 等特定协议) */
+  onDataReceived?: (deviceId: string, serviceId: string, characteristicId: string, value: ArrayBuffer) => void
 
   // Actions
+  /** 设置数据接收回调 */
+  setOnDataReceived: (callback?: (deviceId: string, serviceId: string, characteristicId: string, value: ArrayBuffer) => void) => void
+
   /** 添加日志 */
   addLog: (msg: string | object) => void
   /** 初始化蓝牙适配器 */
@@ -94,6 +99,7 @@ export const useBLEStore = create<BLEState>((set, get) => ({
   selectedServiceId: '',
   selectedCharId: '',
   mtu: 23,
+  onDataReceived: undefined,
 
   addLog: (msg) => {
     const time = new Date().toLocaleTimeString()
@@ -104,6 +110,7 @@ export const useBLEStore = create<BLEState>((set, get) => ({
   setSelectedServiceId: (id) => set({ selectedServiceId: id }),
   setSelectedCharId: (id) => set({ selectedCharId: id }),
   clearLogs: () => set({ logs: [] }),
+  setOnDataReceived: (callback) => set({ onDataReceived: callback }),
 
   /**
    * 初始化蓝牙模块
@@ -146,6 +153,10 @@ export const useBLEStore = create<BLEState>((set, get) => ({
 
       // 监听低功耗蓝牙设备的特征值变化事件
       Taro.onBLECharacteristicValueChange((res) => {
+        const { onDataReceived } = get()
+        if (onDataReceived) {
+          onDataReceived(res.deviceId, res.serviceId, res.characteristicId, res.value)
+        }
         get().addLog(`Value Changed (Read/Notify): ${bufferToHex(res.value)}`)
       })
 

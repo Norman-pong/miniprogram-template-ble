@@ -1,0 +1,77 @@
+.blufi-page {
+  padding: 20px;
+
+  .section {
+    margin-bottom: 20px;
+
+    .title {
+      font-size: 16px;
+      font-weight: bold;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .input-group {
+      margin-bottom: 10px;
+
+      .label {
+        font-size: 14px;
+        color: #666;
+        margin-bottom: 5px;
+        display: block;
+      }
+
+      .input {
+        border: 1px solid #ddd;
+        padding: 8px;
+        border-radius: 4px;
+        width: 100%;
+        box-sizing: border-box;
+      }
+    }
+
+    .btn {
+      margin-right: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+  .device-list {
+    border: 1px solid #eee;
+    border-radius: 4px;
+    height: 200px;
+
+    .device-item {
+      padding: 10px;
+      border-bottom: 1px solid #eee;
+
+      &:active {
+        background-color: #f5f5f5;
+      }
+
+      .name {
+        font-size: 14px;
+        font-weight: bold;
+      }
+
+      .rssi {
+        font-size: 12px;
+        color: #999;
+      }
+    }
+  }
+
+  .logs {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 4px;
+    height: 500px;
+    font-family: monospace;
+    font-size: 12px;
+
+    .log-item {
+      margin-bottom: 4px;
+      word-break: break-all;
+    }
+  }
+}

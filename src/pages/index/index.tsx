@@ -25,8 +25,6 @@ export default function Index() {
 
   return (
     <View className='index'>
-      <View className='header'>BLE Debugger</View>
-
       <View className='section'>
         <Text className='section-title'>1. Adapter</Text>
         <View className='btn-group'>
